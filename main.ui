@@ -295,7 +295,14 @@
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,2">
+         <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1">
+          <item>
+           <widget class="QPlainTextEdit" name="fun">
+            <property name="placeholderText">
+             <string notr="true">请输入f(x,y)</string>
+            </property>
+           </widget>
+          </item>
           <item>
            <widget class="QPlainTextEdit" name="plainTextEdit_2">
             <property name="plainText">
@@ -309,13 +316,6 @@
 指数 exp
 三角函数 sin/cos
 对数 log</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPlainTextEdit" name="fun">
-            <property name="placeholderText">
-             <string notr="true">请输入f(x,y)</string>
             </property>
            </widget>
           </item>
@@ -354,14 +354,20 @@
     </item>
    </layout>
   </widget>
-  <widget class="QGraphicsView" name="graphicsView">
+  <widget class="QFrame" name="frame_2">
    <property name="geometry">
     <rect>
-     <x>9</x>
-     <y>311</y>
+     <x>10</x>
+     <y>310</y>
      <width>911</width>
      <height>331</height>
     </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
    </property>
   </widget>
  </widget>

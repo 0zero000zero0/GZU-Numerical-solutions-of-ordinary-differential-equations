@@ -93,12 +93,6 @@ def euler_predict_correct(f, y0, x0, x_end, h):
 
     return x, y
 
-# 测试数据
-def f(x, y):
-    # 微分方程:y'=y
-    # 解析解:y=exp(x)
-    return y
-
 ## 基于积分的数值求解方法
 ### 梯形法
 def trapezoidal_method(f, y0, x0, x_end, h):
@@ -149,7 +143,7 @@ def trapezoidal_predict_correct(f, y0, x0, x_end, h):
         # 最后使用梯形法进行校正
         y[i] = y[i-1] +0.5*h* (f(x[i-1], y[i-1]) + f(x[i], y_predict[i]))
 
-    return x, y, y_predict
+    return x, y
 
 # Simpson公式
 def simpson_method(f, y0, x0, x_end, h):
