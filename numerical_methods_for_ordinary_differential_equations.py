@@ -4,7 +4,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy as sp
 from scipy import integrate
-import sympy
 from matplotlib.font_manager import FontProperties
 
 # 常微分方程数值求解方法

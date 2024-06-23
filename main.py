@@ -20,14 +20,6 @@ class MplCanvas(FigureCanvas):
         self.setParent(parent)
 
 
-class MplCanvas(FigureCanvas):
-    def __init__(self, parent=None, width=5, height=4, dpi=100):
-        fig = Figure(figsize=(width, height), dpi=dpi)
-        self.axes = fig.add_subplot(111)
-        super().__init__(fig)
-        self.setParent(parent)
-
-
 def plot_to_frame(ui: Ui_BasicForm):
     if hasattr(ui, 'sc'):
         ui.frame_2.layout().removeWidget(ui.sc)
@@ -45,14 +37,21 @@ def plot_to_frame(ui: Ui_BasicForm):
 def quitAPP():
     sys.exit()
 
+
 def emptize(ui: Ui_BasicForm):
-        ui.input.clear()
-        ui.input_2.clear()
-        ui.input_3.clear()
-        ui.input_4.clear()
-        ui.fun.clear()
-        # ui.plainTextEdit_2.clear()
-        ui.frame_2.close()
+    ui.input.clear()
+    ui.input_2.clear()
+    ui.input_3.clear()
+    ui.input_4.clear()
+    ui.fun.clear()
+    # ui.plainTextEdit_2.clear()
+    ui.result.clear()
+
+    # Clear all widgets in frame_2
+    for i in reversed(range(ui.frame_2.layout().count())):
+        widget_to_remove = ui.frame_2.layout().itemAt(i).widget()
+        if widget_to_remove is not None:
+            widget_to_remove.setParent(None)
 
 
 def create_function(ui: Ui_BasicForm):
@@ -139,6 +138,8 @@ def apply_clicked(ui:Ui_BasicForm):
     ui.y = y
     print(f"{len(ui.x)=},{len(ui.y)=}")
     plot_to_frame(ui)
+
+    # 显示结果
     ui.result.setRowCount(2)
     ui.result.setColumnCount(len(x))
     ui.result.setHorizontalHeaderLabels(["x", "y"])

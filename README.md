@@ -9,7 +9,7 @@
 - 欧拉法:预测-校正系统
 - 梯形法
 - 梯形法:预测-校正系统
-- Simpson 法
+- Simpson 法(有点问题)
   **线性多步法**:
 - 四阶 Runge-Kutta 法
 - Adams 显式求解公式
@@ -27,5 +27,6 @@ $$
 ## RUN
 
 ```bash
+pip install -r requirements.txt
 python main.py
 ```
